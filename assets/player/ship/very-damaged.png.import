@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2d2agxfxv5mp"
-path="res://.godot/imported/SpaceShooterAssetPack_IU.png-854a81e89f5e8d080d9dab7768dffa8e.ctex"
+uid="uid://b58ysf4a1moq2"
+path="res://.godot/imported/very-damaged.png-656d6175f5dd94ce0a9031f6d1b1c1f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SpaceShooterAssetPack_IU.png"
-dest_files=["res://.godot/imported/SpaceShooterAssetPack_IU.png-854a81e89f5e8d080d9dab7768dffa8e.ctex"]
+source_file="res://assets/player/ship/very-damaged.png"
+dest_files=["res://.godot/imported/very-damaged.png-656d6175f5dd94ce0a9031f6d1b1c1f0.ctex"]
 
 [params]
 

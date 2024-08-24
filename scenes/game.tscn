@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxnwhm5qcjju2"]
+
+[ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_gu4g3"]
+[ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_kcwmc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sv7hy"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_okw2x"]
+distance = -1.0
+
+[node name="Node2D" type="Node"]
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.5
+offset_right = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_gu4g3")
+expand_mode = 3
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_kcwmc")]
+position = Vector2(575, 599)
+
+[node name="WorldBorderLeft" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(410, 535)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorderLeft"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_sv7hy")
+
+[node name="WorldBorderRight" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(732, 467)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorderRight"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_okw2x")
+
+[connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]
+[connection signal="body_entered" from="WorldBorderRight" to="CharacterBody2D" method="_on_world_border_right_body_entered"]

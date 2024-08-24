@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djorkfmi72eb3"
-path="res://.godot/imported/SpaceShooterAssetPack_BackGrounds.png-40c27d371c0774439f2d44bc4d1df4de.ctex"
+uid="uid://dqvh3xg2udhf0"
+path="res://.godot/imported/full-health.png-64ca0316bb98608f51b4890adeb113fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SpaceShooterAssetPack_BackGrounds.png"
-dest_files=["res://.godot/imported/SpaceShooterAssetPack_BackGrounds.png-40c27d371c0774439f2d44bc4d1df4de.ctex"]
+source_file="res://assets/player/ship/full-health.png"
+dest_files=["res://.godot/imported/full-health.png-64ca0316bb98608f51b4890adeb113fa.ctex"]
 
 [params]
 
