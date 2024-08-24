@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxnwhm5qcjju2"]
+[gd_scene load_steps=7 format=3 uid="uid://bxnwhm5qcjju2"]
 
 [ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_gu4g3"]
 [ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_kcwmc"]
@@ -8,6 +8,8 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_okw2x"]
 distance = -1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s7jjn"]
 
 [node name="Node2D" type="Node"]
 
@@ -44,6 +46,13 @@ position = Vector2(732, 467)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorderRight"]
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_okw2x")
+
+[node name="WorldBorderTop" type="Area2D" parent="."]
+position = Vector2(550, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorderTop"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_s7jjn")
 
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]
 [connection signal="body_entered" from="WorldBorderRight" to="CharacterBody2D" method="_on_world_border_right_body_entered"]

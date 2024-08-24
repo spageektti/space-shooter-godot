@@ -8,20 +8,23 @@ const SPEED = 250.0
 @onready var world_border_right = %WorldBorderRight
 
 var health = 4
+var bullets = 4
 
 func _physics_process(delta):
 
 	if Input.is_action_just_pressed("shoot"):
-		spawn_bullet()
+		if(bullets > 0):
+			spawn_bullet()
+			bullets -= 1
+			if(bullets == 0):
+				await get_tree().create_timer(4).timeout
+				bullets = 4
 
 	var direction = Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, 20)
-	
-	print(world_border_right.position.x)
-	print(world_border_left.position.x)
 	
 	move_and_slide()
 
