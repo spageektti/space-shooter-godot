@@ -16,9 +16,8 @@ func _physics_process(delta):
 		if(bullets > 0):
 			spawn_bullet()
 			bullets -= 1
-			if(bullets == 0):
-				await get_tree().create_timer(4).timeout
-				bullets = 4
+			await get_tree().create_timer(4).timeout
+			bullets += 1
 
 	var direction = Input.get_axis("left", "right")
 	if direction:
