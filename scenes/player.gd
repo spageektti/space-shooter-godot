@@ -2,13 +2,17 @@ extends CharacterBody2D
 
 const SPEED = 250.0
 
+@export var bullet : PackedScene
+
 @onready var world_border_left = %WorldBorderLeft
 @onready var world_border_right = %WorldBorderRight
+
+var health = 4
 
 func _physics_process(delta):
 
 	if Input.is_action_just_pressed("shoot"):
-		pass
+		spawn_bullet()
 
 	var direction = Input.get_axis("left", "right")
 	if direction:
@@ -28,3 +32,8 @@ func _on_world_border_left_body_entered(body):
 func _on_world_border_right_body_entered(body):
 	if(body.name == "CharacterBody2D"):
 		body.position.x = world_border_left.position.x + 20
+
+func spawn_bullet():
+	var bullet_node = bullet.instantiate()
+	bullet_node.position = position
+	get_parent().add_child(bullet_node)

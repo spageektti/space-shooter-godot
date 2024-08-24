@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxnwhm5qcjju2"]
+[gd_scene load_steps=6 format=3 uid="uid://bxnwhm5qcjju2"]
 
 [ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_gu4g3"]
 [ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_kcwmc"]
+[ext_resource type="PackedScene" uid="uid://b8leb80lbapku" path="res://scenes/bullet.tscn" id="3_xlskj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sv7hy"]
 
@@ -26,6 +27,7 @@ expand_mode = 3
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_kcwmc")]
 position = Vector2(575, 599)
+bullet = ExtResource("3_xlskj")
 
 [node name="WorldBorderLeft" type="Area2D" parent="."]
 unique_name_in_owner = true
