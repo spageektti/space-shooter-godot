@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxnwhm5qcjju2"]
+
+[ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_nekke"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ovmdc"]
+
+[node name="Node2D" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.5
+offset_right = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_nekke")
+expand_mode = 3
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_ovmdc")
