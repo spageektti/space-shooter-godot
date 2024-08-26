@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmttl13amjrp5"]
+[gd_scene load_steps=4 format=3 uid="uid://dmttl13amjrp5"]
 
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_7yptp"]
 [ext_resource type="Texture2D" uid="uid://ckq3hsckxj6ii" path="res://assets/enemies/ships/frigate.png" id="1_gftni"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22on5"]
@@ -7,6 +8,7 @@ radius = 22.2036
 
 [node name="enemy" type="RigidBody2D"]
 rotation = 3.14159
+script = ExtResource("1_7yptp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gftni")
