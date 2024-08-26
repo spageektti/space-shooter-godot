@@ -10,8 +10,10 @@ extends RigidBody2D
 @export var speed_x : float = 100.0
 @export var speed_y : float = 100.0
 
-@export var bullets : int
+@export var timeout_min : float = 0.5
+@export var timeout_max : float = 2
 
+var bullets = 1
 var direction = -1 # -1 left 1 right
 
 func _ready():
@@ -25,6 +27,7 @@ func _process(delta):
 			bullet_node.position = position
 			bullet_node.direction = 1
 			get_parent().add_child(bullet_node)
+			bullet_node.rotation = deg_to_rad(180)
 			bullets -= 1
 			await get_tree().create_timer(randf_range(0.5, 2)).timeout
 			bullets += 1

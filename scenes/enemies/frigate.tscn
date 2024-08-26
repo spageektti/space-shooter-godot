@@ -17,7 +17,8 @@ bullet = ExtResource("2_85yjq")
 health = 5
 moving_x = true
 speed_x = 50.0
-bullets = 1
+timeout_min = 0.25
+timeout_max = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gftni")

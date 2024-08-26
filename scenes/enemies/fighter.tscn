@@ -15,7 +15,6 @@ rotation = 3.14159
 script = ExtResource("1_tyq88")
 bullet = ExtResource("2_vd3b3")
 health = 3
-bullets = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_ktsma")

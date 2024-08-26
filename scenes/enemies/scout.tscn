@@ -15,7 +15,7 @@ rotation = 3.14159
 script = ExtResource("1_kcwvv")
 bullet = ExtResource("2_8q83d")
 health = 1
-bullets = 1
+timeout_max = 1.25
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_fvnaw")
