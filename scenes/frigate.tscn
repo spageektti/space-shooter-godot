@@ -7,7 +7,7 @@
 radius = 22.2036
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1rvw"]
-size = Vector2(50, 20)
+size = Vector2(50, 1)
 
 [node name="enemy" type="RigidBody2D"]
 rotation = 3.14159
@@ -22,4 +22,5 @@ shape = SubResource("CircleShape2D_22on5")
 [node name="enemy" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2(-2.27374e-13, 22.5)
 shape = SubResource("RectangleShape2D_m1rvw")
