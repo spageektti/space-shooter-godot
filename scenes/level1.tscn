@@ -61,7 +61,11 @@ position = Vector2(575, 39)
 mass = 0.01
 gravity_scale = 0.0
 bullet = ExtResource("3_0ru33")
+health = 4
 moving_x = true
+moving_y = false
+speed_x = 100.0
+speed_y = 100.0
 
 [connection signal="area_entered" from="WorldBorderLeft" to="enemy" method="_on_world_border_left_area_entered"]
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]
