@@ -15,6 +15,8 @@ extends RigidBody2D
 
 @export var damage_amount : int = 1
 
+@export var enemy_list : Array[PackedScene]
+
 var bullets = 1
 var direction = -1 # -1 left 1 right
 
@@ -41,6 +43,14 @@ func damage():
 	if(health == 0):
 		print("Enemy destroyed")
 		queue_free()
+		if(not enemy_list.is_empty()):
+			print("next enemy")
+			var enemy_node = enemy_list[0].instantiate()
+			enemy_node.position = position
+			enemy_list.pop_front()
+			enemy_node.enemy_list = enemy_list
+			get_parent().add_child(enemy_node)
+		
 
 func _on_world_border_left_area_entered(area):
 	print(area.name)
