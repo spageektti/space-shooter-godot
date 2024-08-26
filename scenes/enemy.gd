@@ -15,7 +15,6 @@ var direction = -1 # -1 left 1 right
 func _process(delta):
 	position.x += direction * speed_x * delta if moving_x else 0
 	position.y += speed_y * delta if moving_y else 0
-	
 
 func damage():
 	health -= 1
@@ -24,8 +23,11 @@ func damage():
 		print("Enemy destroyed")
 		queue_free()
 
-func _on_world_border_right_body_entered(body):
-	direction = -1
-
-func _on_world_border_left_body_entered(body):
+func _on_world_border_left_area_entered(area):
+	print(area.name)
 	direction = 1
+
+
+func _on_world_border_right_area_entered(area):
+	print(area.name)
+	direction = -1

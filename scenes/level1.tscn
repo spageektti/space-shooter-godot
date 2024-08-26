@@ -63,7 +63,7 @@ gravity_scale = 0.0
 bullet = ExtResource("3_0ru33")
 moving_x = true
 
+[connection signal="area_entered" from="WorldBorderLeft" to="enemy" method="_on_world_border_left_area_entered"]
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]
-[connection signal="body_entered" from="WorldBorderLeft" to="enemy" method="_on_world_border_left_body_entered"]
+[connection signal="area_entered" from="WorldBorderRight" to="enemy" method="_on_world_border_right_area_entered"]
 [connection signal="body_entered" from="WorldBorderRight" to="CharacterBody2D" method="_on_world_border_right_body_entered"]
-[connection signal="body_entered" from="WorldBorderRight" to="enemy" method="_on_world_border_right_body_entered"]
