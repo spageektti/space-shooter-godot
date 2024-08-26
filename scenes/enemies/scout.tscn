@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlum834bjadvx"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_kcwvv"]
+[ext_resource type="PackedScene" uid="uid://btbme4ajmn4w" path="res://scenes/enemies/bullets/bullet.tscn" id="2_8q83d"]
+[ext_resource type="Texture2D" uid="uid://bsjw307moh0ro" path="res://assets/enemies/ships/scout.png" id="3_fvnaw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22on5"]
+radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1rvw"]
+size = Vector2(28.5, 1.00003)
+
+[node name="enemy" type="RigidBody2D"]
+rotation = 3.14159
+script = ExtResource("1_kcwvv")
+bullet = ExtResource("2_8q83d")
+health = 1
+bullets = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_fvnaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.53518e-06, 1)
+shape = SubResource("CircleShape2D_22on5")
+
+[node name="enemy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2(-3.29574e-05, 13)
+shape = SubResource("RectangleShape2D_m1rvw")

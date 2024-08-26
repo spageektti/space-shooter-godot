@@ -1,21 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvjeqpx3g4fmx"]
+[gd_scene load_steps=9 format=3 uid="uid://btbme4ajmn4w"]
 
 [ext_resource type="Script" path="res://scenes/bullet.gd" id="1_jlnrg"]
 [ext_resource type="Texture2D" uid="uid://cxqsttba36vqr" path="res://assets/enemies/weapons/bullets/bullet.png" id="2_8yn1f"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m8emc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_50moy"]
 atlas = ExtResource("2_8yn1f")
 region = Rect2(0, 0, 4, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cpohl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_30eob"]
 atlas = ExtResource("2_8yn1f")
 region = Rect2(4, 0, 4, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gp71o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtyfh"]
 atlas = ExtResource("2_8yn1f")
 region = Rect2(8, 0, 4, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v1grq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl2e4"]
 atlas = ExtResource("2_8yn1f")
 region = Rect2(12, 0, 4, 16)
 
@@ -23,16 +23,16 @@ region = Rect2(12, 0, 4, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m8emc")
+"texture": SubResource("AtlasTexture_50moy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cpohl")
+"texture": SubResource("AtlasTexture_30eob")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gp71o")
+"texture": SubResource("AtlasTexture_wtyfh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v1grq")
+"texture": SubResource("AtlasTexture_xl2e4")
 }],
 "loop": true,
 "name": &"default",
@@ -47,11 +47,14 @@ scale = Vector2(0.48, 0.48)
 script = ExtResource("1_jlnrg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.08333, -4.33333)
+scale = Vector2(1.54167, 1.54167)
 sprite_frames = SubResource("SpriteFrames_s5mp2")
 autoplay = "default"
 frame_progress = 0.0767351
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.08333)
 shape = SubResource("CircleShape2D_b5j26")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

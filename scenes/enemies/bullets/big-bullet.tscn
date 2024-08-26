@@ -1,22 +1,22 @@
 [gd_scene load_steps=9 format=3 uid="uid://bsfxft3xguqvk"]
 
-[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_4846e"]
-[ext_resource type="Texture2D" uid="uid://dvoj4foe0ppwy" path="res://assets/enemies/weapons/bullets/big-bullet.png" id="2_gcdky"]
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_r5m7k"]
+[ext_resource type="Texture2D" uid="uid://dvoj4foe0ppwy" path="res://assets/enemies/weapons/bullets/big-bullet.png" id="2_6bmcc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nh4c"]
-atlas = ExtResource("2_gcdky")
+atlas = ExtResource("2_6bmcc")
 region = Rect2(0, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vsu7v"]
-atlas = ExtResource("2_gcdky")
+atlas = ExtResource("2_6bmcc")
 region = Rect2(8, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5j7x3"]
-atlas = ExtResource("2_gcdky")
+atlas = ExtResource("2_6bmcc")
 region = Rect2(16, 0, 8, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jdel"]
-atlas = ExtResource("2_gcdky")
+atlas = ExtResource("2_6bmcc")
 region = Rect2(24, 0, 8, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s5mp2"]
@@ -44,7 +44,7 @@ radius = 10.4167
 
 [node name="bullet" type="Area2D"]
 scale = Vector2(0.48, 0.48)
-script = ExtResource("1_4846e")
+script = ExtResource("1_r5m7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s5mp2")
