@@ -4,6 +4,7 @@ const SPEED = 250.0
 
 @export var bullet : PackedScene
 
+@onready var animation = $AnimatedSprite2D
 @onready var world_border_left = %WorldBorderLeft
 @onready var world_border_right = %WorldBorderRight
 
@@ -47,4 +48,11 @@ func damage():
 		get_tree().reload_current_scene()
 
 func update_look():
-	pass
+	if(health == 4):
+		animation.play("default")
+	elif(health == 3):
+		animation.play("slightly-damaged")
+	elif(health == 2):
+		animation.play("damaged")
+	elif(health == 1):
+		animation.play("very-damaged")

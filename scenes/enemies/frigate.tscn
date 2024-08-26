@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmttl13amjrp5"]
+[gd_scene load_steps=6 format=3 uid="uid://dmttl13amjrp5"]
 
-[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_7yptp"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_7yptp"]
 [ext_resource type="Texture2D" uid="uid://ckq3hsckxj6ii" path="res://assets/enemies/ships/frigate.png" id="1_gftni"]
+[ext_resource type="PackedScene" uid="uid://bsfxft3xguqvk" path="res://scenes/enemies/big-bullet.tscn" id="2_85yjq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22on5"]
 radius = 22.2036
@@ -12,6 +13,9 @@ size = Vector2(50, 1)
 [node name="enemy" type="RigidBody2D"]
 rotation = 3.14159
 script = ExtResource("1_7yptp")
+bullet = ExtResource("2_85yjq")
+health = 5
+bullets = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gftni")

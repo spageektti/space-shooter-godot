@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv2k3w8hypwaq"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_tyq88"]
+[ext_resource type="PackedScene" uid="uid://bsfxft3xguqvk" path="res://scenes/enemies/big-bullet.tscn" id="2_vd3b3"]
+[ext_resource type="Texture2D" uid="uid://ddo01cg6fxxuc" path="res://assets/enemies/ships/fighter.png" id="3_ktsma"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22on5"]
+radius = 15.1327
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1rvw"]
+size = Vector2(43, 1)
+
+[node name="enemy" type="RigidBody2D"]
+rotation = 3.14159
+script = ExtResource("1_tyq88")
+bullet = ExtResource("2_vd3b3")
+health = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_ktsma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_22on5")
+
+[node name="enemy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+position = Vector2(-3.29018e-05, 13)
+shape = SubResource("RectangleShape2D_m1rvw")

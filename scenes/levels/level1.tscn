@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxnwhm5qcjju2"]
+[gd_scene load_steps=9 format=3 uid="uid://bxnwhm5qcjju2"]
 
-[ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_utoln"]
-[ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_dofgl"]
-[ext_resource type="PackedScene" uid="uid://b8leb80lbapku" path="res://scenes/bullet.tscn" id="3_0ru33"]
-[ext_resource type="PackedScene" uid="uid://dmttl13amjrp5" path="res://scenes/frigate.tscn" id="4_ah404"]
+[ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_r1lk2"]
+[ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_utgk6"]
+[ext_resource type="PackedScene" uid="uid://b8leb80lbapku" path="res://scenes/bullet.tscn" id="3_4ge76"]
+[ext_resource type="PackedScene" uid="uid://dmttl13amjrp5" path="res://scenes/enemies/frigate.tscn" id="4_kogt8"]
+[ext_resource type="PackedScene" uid="uid://bv2k3w8hypwaq" path="res://scenes/enemies/fighter.tscn" id="5_gqae5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sv7hy"]
 
@@ -25,13 +26,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("1_utoln")
+texture = ExtResource("1_r1lk2")
 expand_mode = 3
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_dofgl")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_utgk6")]
 unique_name_in_owner = true
 position = Vector2(575, 599)
-bullet = ExtResource("3_0ru33")
+bullet = ExtResource("3_4ge76")
 
 [node name="WorldBorderLeft" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -56,12 +57,17 @@ position = Vector2(550, -24)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_s7jjn")
 
-[node name="enemy" parent="." instance=ExtResource("4_ah404")]
+[node name="enemy" parent="." instance=ExtResource("4_kogt8")]
 position = Vector2(575, 39)
 mass = 0.01
 gravity_scale = 0.0
-bullet = ExtResource("3_0ru33")
 moving_x = true
+
+[node name="enemy2" parent="." instance=ExtResource("5_gqae5")]
+position = Vector2(450, 204)
+
+[node name="enemy3" parent="." instance=ExtResource("5_gqae5")]
+position = Vector2(699, 154)
 
 [connection signal="area_entered" from="WorldBorderLeft" to="enemy" method="_on_world_border_left_area_entered"]
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]

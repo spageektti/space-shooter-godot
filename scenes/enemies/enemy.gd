@@ -10,8 +10,9 @@ extends RigidBody2D
 @export var speed_x : float = 100.0
 @export var speed_y : float = 100.0
 
+@export var bullets : int
+
 var direction = -1 # -1 left 1 right
-var bullets = 1
 
 func _process(delta):
 	position.x += direction * speed_x * delta if moving_x else 0
@@ -22,7 +23,7 @@ func _process(delta):
 			bullet_node.direction = 1
 			get_parent().add_child(bullet_node)
 			bullets -= 1
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(0.5).timeout
 			bullets += 1
 
 func damage():

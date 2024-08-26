@@ -7,7 +7,7 @@ func _process(delta):
 	position.y += delta * speed * direction
 
 func _on_body_entered(body):
-	if((direction == -1 and body.name != "CharacterBody2D") or (direction == 1 and body.name != "enemy")):
+	if((direction == -1 and body.name != "CharacterBody2D") or (direction == 1 and not body.name.begins_with("enemy"))):
 		body.damage()
 		print("destroy bullet")
 		queue_free()
