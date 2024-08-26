@@ -29,6 +29,7 @@ texture = ExtResource("1_utoln")
 expand_mode = 3
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_dofgl")]
+unique_name_in_owner = true
 position = Vector2(575, 599)
 bullet = ExtResource("3_0ru33")
 
@@ -57,11 +58,12 @@ shape = SubResource("WorldBoundaryShape2D_s7jjn")
 
 [node name="enemy" parent="." instance=ExtResource("4_ah404")]
 position = Vector2(575, 39)
+mass = 0.01
+gravity_scale = 0.0
 bullet = ExtResource("3_0ru33")
 moving_x = true
-moving_y = true
-speed_x = 100.1
-speed_y = 100.1
 
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]
+[connection signal="body_entered" from="WorldBorderLeft" to="enemy" method="_on_world_border_left_body_entered"]
 [connection signal="body_entered" from="WorldBorderRight" to="CharacterBody2D" method="_on_world_border_right_body_entered"]
+[connection signal="body_entered" from="WorldBorderRight" to="enemy" method="_on_world_border_right_body_entered"]
