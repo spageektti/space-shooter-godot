@@ -10,7 +10,7 @@ radius = 12.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1rvw"]
 size = Vector2(28.5, 1.00003)
 
-[node name="enemy" type="RigidBody2D"]
+[node name="enemy" type="RigidBody2D" node_paths=PackedStringArray("enemy_list")]
 rotation = 3.14159
 script = ExtResource("1_kcwvv")
 bullet = ExtResource("2_8q83d")

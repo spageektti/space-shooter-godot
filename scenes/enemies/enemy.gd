@@ -15,18 +15,22 @@ extends RigidBody2D
 
 @export var damage_amount : int = 1
 
-@export var enemy_list : Array[PackedScene]
+@export var enemy_list : Array[Node]
 
 var bullets = 1
 var direction = -1 # -1 left 1 right
 
 func _ready():
 	randomize()
+	
+	for enemy in enemy_list:
+		enemy.hide()
+		enemy.freeze = true
 
 func _process(delta):
 	position.x += direction * speed_x * delta if moving_x else 0
 	position.y += speed_y * delta if moving_y else 0
-	if(bullets > 0):
+	if(bullets > 0 and not freeze):
 			var bullet_node = bullet.instantiate()
 			bullet_node.position = position
 			bullet_node.direction = 1
@@ -45,11 +49,9 @@ func damage():
 		queue_free()
 		if(not enemy_list.is_empty()):
 			print("next enemy")
-			var enemy_node = enemy_list[0].instantiate()
-			enemy_node.position = position
-			enemy_list.pop_front()
-			enemy_node.enemy_list = enemy_list
-			get_parent().add_child(enemy_node)
+			var enemy_node = enemy_list[0]
+			enemy_node.show()
+			enemy_node.freeze = false
 		
 
 func _on_world_border_left_area_entered(area):
