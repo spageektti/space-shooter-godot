@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcwu5dx74k0hn"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_lhniu"]
+[ext_resource type="PackedScene" uid="uid://ijcpybo6s7o8" path="res://scenes/enemies/bullets/torpedo.tscn" id="2_ghrca"]
+[ext_resource type="Texture2D" uid="uid://b2yt1qud44yi5" path="res://assets/enemies/ships/torpedo-ship.png" id="3_m2sow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_202f4"]
+size = Vector2(54, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1rvw"]
+size = Vector2(60.5, 1.00003)
+
+[node name="enemy" type="RigidBody2D"]
+rotation = 3.14159
+script = ExtResource("1_lhniu")
+bullet = ExtResource("2_ghrca")
+health = 3
+speed_x = 50.0
+timeout_min = 3.0
+timeout_max = 4.0
+damage_amount = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_m2sow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.66385e-06, 4.7682e-07)
+shape = SubResource("RectangleShape2D_202f4")
+
+[node name="enemy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
+shape = SubResource("RectangleShape2D_m1rvw")
