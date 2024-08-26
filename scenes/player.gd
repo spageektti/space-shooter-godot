@@ -39,3 +39,12 @@ func spawn_bullet():
 	var bullet_node = bullet.instantiate()
 	bullet_node.position = position
 	get_parent().add_child(bullet_node)
+
+func damage():
+	health -= 1
+	update_look()
+	if(health == 0):
+		get_tree().reload_current_scene()
+
+func update_look():
+	pass

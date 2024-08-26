@@ -13,6 +13,7 @@ func _on_body_entered(body):
 		queue_free()
 
 func _on_area_entered(area):
-	if(area.get_name().begins_with("WorldBorder")):
+	if(area.get_name().begins_with("WorldBorder") or area.get_name().begins_with("b")):
 		print("destroy bullet")
+		area.queue_free()
 		queue_free()

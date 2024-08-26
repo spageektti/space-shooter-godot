@@ -82,6 +82,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5j26"]
+radius = 10.4167
 
 [node name="bullet" type="Area2D"]
 scale = Vector2(0.48, 0.48)
