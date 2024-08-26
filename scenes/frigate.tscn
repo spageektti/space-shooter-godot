@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmttl13amjrp5"]
+
+[ext_resource type="Texture2D" uid="uid://ckq3hsckxj6ii" path="res://assets/enemies/ships/frigate.png" id="1_gftni"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22on5"]
+radius = 22.2036
+
+[node name="enemy" type="RigidBody2D"]
+rotation = 3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gftni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_22on5")
