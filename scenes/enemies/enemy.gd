@@ -13,6 +13,8 @@ extends RigidBody2D
 @export var timeout_min : float = 0.5
 @export var timeout_max : float = 2
 
+@export var damage_amount : int = 1
+
 var bullets = 1
 var direction = -1 # -1 left 1 right
 
@@ -26,10 +28,11 @@ func _process(delta):
 			var bullet_node = bullet.instantiate()
 			bullet_node.position = position
 			bullet_node.direction = 1
-			get_parent().add_child(bullet_node)
 			bullet_node.rotation = deg_to_rad(180)
+			bullet_node.damage = damage_amount
+			get_parent().add_child(bullet_node)
 			bullets -= 1
-			await get_tree().create_timer(randf_range(0.5, 2)).timeout
+			await get_tree().create_timer(randf_range(timeout_min, timeout_max)).timeout
 			bullets += 1
 
 func damage():

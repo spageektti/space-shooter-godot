@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxnwhm5qcjju2"]
+[gd_scene load_steps=11 format=3 uid="uid://bxnwhm5qcjju2"]
 
 [ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_r1lk2"]
 [ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_utgk6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dmttl13amjrp5" path="res://scenes/enemies/frigate.tscn" id="4_kogt8"]
 [ext_resource type="PackedScene" uid="uid://bv2k3w8hypwaq" path="res://scenes/enemies/fighter.tscn" id="5_gqae5"]
 [ext_resource type="PackedScene" uid="uid://dlum834bjadvx" path="res://scenes/enemies/scout.tscn" id="6_yspeq"]
+[ext_resource type="PackedScene" uid="uid://cuq40egny46hg" path="res://scenes/enemies/bomber.tscn" id="7_34n60"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sv7hy"]
 
@@ -68,6 +69,9 @@ position = Vector2(450, 204)
 
 [node name="enemy3" parent="." instance=ExtResource("6_yspeq")]
 position = Vector2(709, 131)
+
+[node name="enemy4" parent="." instance=ExtResource("7_34n60")]
+position = Vector2(570, 255)
 
 [connection signal="area_entered" from="WorldBorderLeft" to="enemy" method="_on_world_border_left_area_entered"]
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]

@@ -2,13 +2,17 @@ extends Area2D
 
 @export var speed : float = 250
 var direction = -1 # -1 up 1 down
+var damage = 1
 
 func _process(delta):
 	position.y += delta * speed * direction
 
 func _on_body_entered(body):
 	if((direction == -1 and body.name != "CharacterBody2D") or (direction == 1 and not body.name.begins_with("enemy"))):
-		body.damage()
+		print(damage)
+		while(damage > 0):
+			body.damage()
+			damage -= 1
 		print("destroy bullet")
 		queue_free()
 
