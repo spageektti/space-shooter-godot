@@ -10,30 +10,24 @@ extends RigidBody2D
 @export var speed_x : float = 100.0
 @export var speed_y : float = 100.0
 
-var seconds_passed = 0
-var bullets = 0
-var play_time = 0
-var last_play_time = 0
-var timeout = 1
+@export var bullets : int
 
 var direction = -1 # -1 left 1 right
+
+func _ready():
+	randomize()
 
 func _process(delta):
 	position.x += direction * speed_x * delta if moving_x else 0
 	position.y += speed_y * delta if moving_y else 0
-	play_time += delta
-	seconds_passed += int(play_time) - int(last_play_time)
-	if(bullets > 0 and seconds_passed % timeout == 0):
-			timeout = 1
+	if(bullets > 0):
 			var bullet_node = bullet.instantiate()
 			bullet_node.position = position
 			bullet_node.direction = 1
 			get_parent().add_child(bullet_node)
+			bullets -= 1
+			await get_tree().create_timer(randf_range(0.5, 2)).timeout
 			bullets += 1
-	
-	if(bullets % 4 == 0):
-		timeout = 2
-	last_play_time = play_time
 
 func damage():
 	health -= 1
