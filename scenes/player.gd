@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 250.0
 
 @export var bullet : PackedScene
+@export var next_level : PackedScene
 
 @onready var animation = $AnimatedSprite2D
 @onready var world_border_left = %WorldBorderLeft
@@ -12,6 +13,7 @@ const SPEED = 250.0
 var health = 4
 var bullets = 4
 var can_win
+var frames = 0
 
 @onready var nodes = enemies.get_children()
 
@@ -33,11 +35,18 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta):
-	nodes = enemies.get_children()
-	print(nodes)
-	if(nodes.is_empty()):
-		print("Won!")
-		queue_free()				
+	frames += 1
+	if(frames % 240 == 0): # 60fps * 4, so at most 4 seconds delay after win
+		nodes = enemies.get_children()
+		can_win = true
+		for node in nodes:
+			if(node.name.begins_with("enemy")):
+				if(not node.can_win):
+					can_win = false
+					break
+		if(can_win):
+			print("Won!")
+			queue_free()		
 
 func _on_world_border_left_body_entered(body):
 	if(body.name == "CharacterBody2D"):

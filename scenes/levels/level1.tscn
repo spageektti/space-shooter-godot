@@ -59,6 +59,14 @@ position = Vector2(550, -24)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_s7jjn")
 
+[node name="WorldBorderBottom" type="Area2D" parent="."]
+position = Vector2(550, 648)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorderBottom"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_s7jjn")
+
 [node name="enemies" type="Node" parent="."]
 unique_name_in_owner = true
 
