@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxnwhm5qcjju2"]
+[gd_scene load_steps=14 format=3 uid="uid://bxnwhm5qcjju2"]
 
 [ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_r1lk2"]
 [ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_utgk6"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bv2k3w8hypwaq" path="res://scenes/enemies/fighter.tscn" id="5_gqae5"]
 [ext_resource type="PackedScene" uid="uid://dlum834bjadvx" path="res://scenes/enemies/scout.tscn" id="6_yspeq"]
 [ext_resource type="PackedScene" uid="uid://cuq40egny46hg" path="res://scenes/enemies/bomber.tscn" id="7_34n60"]
+[ext_resource type="Texture2D" uid="uid://cs0xuggv38436" path="res://assets/background/Starry background  - Layer 01 - Void.png" id="8_t6cma"]
+[ext_resource type="Texture2D" uid="uid://bxc4ftsholya4" path="res://assets/background/Starry background  - Layer 02 - Stars.png" id="9_tfm02"]
+[ext_resource type="Texture2D" uid="uid://denoxn2a138l" path="res://assets/background/Starry background  - Layer 03 - Stars.png" id="10_o0jr1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sv7hy"]
 
@@ -18,6 +21,7 @@ distance = -1.0
 [node name="Node2D" type="Node"]
 
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
@@ -82,6 +86,41 @@ enemy_list = [NodePath("../enemy4")]
 
 [node name="enemy4" parent="enemies" instance=ExtResource("7_34n60")]
 position = Vector2(570, 256)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(743, 0)
+rotation = 1.5708
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-10, 178)
+texture = ExtResource("8_t6cma")
+region_rect = Rect2(1000, 1000, 0, 0)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(743, 0)
+rotation = 1.5708
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-10, 178)
+texture = ExtResource("9_tfm02")
+region_rect = Rect2(1000, 1000, 0, 0)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(743, 0)
+rotation = 1.5708
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-8.99999, 179)
+texture = ExtResource("10_o0jr1")
+region_rect = Rect2(1000, 1000, 0, 0)
 
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]
 [connection signal="body_entered" from="WorldBorderRight" to="CharacterBody2D" method="_on_world_border_right_body_entered"]
