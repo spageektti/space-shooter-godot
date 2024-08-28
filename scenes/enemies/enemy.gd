@@ -43,18 +43,19 @@ func _process(delta):
 			bullets += 1
 
 func damage():
-	health -= 1
-	print("Enemy damaged")
-	if(health == 0):
-		print("Enemy destroyed")
-		queue_free()
-		if(not enemy_list.is_empty()):
-			print("next enemy")
-			var enemy_node = enemy_list[0]
-			enemy_node.show()
-			enemy_node.freeze = false
-		else:
-			can_win = true
+	if(not freeze):
+		health -= 1
+		print("Enemy damaged")
+		if(health == 0):
+			print("Enemy destroyed")
+			queue_free()
+			if(not enemy_list.is_empty()):
+				print("next enemy")
+				var enemy_node = enemy_list[0]
+				enemy_node.show()
+				enemy_node.freeze = false
+			else:
+				can_win = true
 
 #func _on_world_border_left_area_entered(area):
 #	print(area.name)

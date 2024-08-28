@@ -8,7 +8,7 @@ func _process(delta):
 	position.y += delta * speed * direction
 
 func _on_body_entered(body):
-	if((direction == -1 and body.name != "CharacterBody2D") or (direction == 1 and not body.name.begins_with("enemy"))):
+	if((not body.freeze) and ((direction == -1 and body.name != "CharacterBody2D") or (direction == 1 and not body.name.begins_with("enemy")))):
 		print(damage)
 		while(damage > 0):
 			body.damage()
