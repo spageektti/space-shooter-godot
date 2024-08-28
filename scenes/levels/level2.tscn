@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxnwhm5qcjju2"]
+[gd_scene load_steps=11 format=3 uid="uid://blxdkag1k0fe3"]
 
-[ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_r1lk2"]
-[ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_utgk6"]
-[ext_resource type="PackedScene" uid="uid://b8leb80lbapku" path="res://scenes/bullet.tscn" id="3_4ge76"]
-[ext_resource type="PackedScene" uid="uid://bv2k3w8hypwaq" path="res://scenes/enemies/fighter.tscn" id="5_gqae5"]
-[ext_resource type="PackedScene" uid="uid://dlum834bjadvx" path="res://scenes/enemies/scout.tscn" id="6_yspeq"]
-[ext_resource type="PackedScene" uid="uid://cuq40egny46hg" path="res://scenes/enemies/bomber.tscn" id="7_34n60"]
+[ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_l0x4e"]
+[ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_udwc0"]
+[ext_resource type="PackedScene" uid="uid://b8leb80lbapku" path="res://scenes/bullet.tscn" id="3_tuwmr"]
+[ext_resource type="PackedScene" uid="uid://bv2k3w8hypwaq" path="res://scenes/enemies/fighter.tscn" id="4_lebfd"]
+[ext_resource type="PackedScene" uid="uid://dlum834bjadvx" path="res://scenes/enemies/scout.tscn" id="5_lf33s"]
+[ext_resource type="PackedScene" uid="uid://cuq40egny46hg" path="res://scenes/enemies/bomber.tscn" id="6_dbnu6"]
+[ext_resource type="PackedScene" uid="uid://dcwu5dx74k0hn" path="res://scenes/enemies/torpedo-ship.tscn" id="7_42sdj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sv7hy"]
 
@@ -27,13 +28,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("1_r1lk2")
+texture = ExtResource("1_l0x4e")
 expand_mode = 3
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_utgk6")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_udwc0")]
 unique_name_in_owner = true
 position = Vector2(575, 599)
-bullet = ExtResource("3_4ge76")
+bullet = ExtResource("3_tuwmr")
 
 [node name="WorldBorderLeft" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -69,17 +70,18 @@ shape = SubResource("WorldBoundaryShape2D_s7jjn")
 [node name="enemies" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="enemy2" parent="enemies" instance=ExtResource("5_gqae5")]
-position = Vector2(564, 186)
-moving_x = true
-speed_x = 50.0
+[node name="enemy2" parent="enemies" instance=ExtResource("4_lebfd")]
+position = Vector2(450, 204)
 
-[node name="enemy3" parent="enemies" node_paths=PackedStringArray("enemy_list") instance=ExtResource("6_yspeq")]
+[node name="enemy3" parent="enemies" node_paths=PackedStringArray("enemy_list") instance=ExtResource("5_lf33s")]
 position = Vector2(709, 131)
 enemy_list = [NodePath("../enemy4")]
 
-[node name="enemy4" parent="enemies" instance=ExtResource("7_34n60")]
+[node name="enemy4" parent="enemies" instance=ExtResource("6_dbnu6")]
 position = Vector2(570, 256)
+
+[node name="enemy5" parent="enemies" instance=ExtResource("7_42sdj")]
+position = Vector2(658, 267)
 
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]
 [connection signal="body_entered" from="WorldBorderRight" to="CharacterBody2D" method="_on_world_border_right_body_entered"]

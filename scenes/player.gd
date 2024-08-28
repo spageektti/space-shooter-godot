@@ -46,7 +46,7 @@ func _process(delta):
 					break
 		if(can_win):
 			print("Won!")
-			queue_free()		
+			get_tree().change_scene_to_packed(next_level)
 
 func _on_world_border_left_body_entered(body):
 	if(body.name == "CharacterBody2D"):

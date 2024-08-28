@@ -56,11 +56,18 @@ func damage():
 		else:
 			can_win = true
 
-func _on_world_border_left_area_entered(area):
-	print(area.name)
-	direction = 1
+#func _on_world_border_left_area_entered(area):
+#	print(area.name)
+#	direction = 1
+#	area.direction = 1
+#
+#
+#func _on_world_border_right_area_entered(area):
+#	print(area.name)
+#	direction = -1
+#	area.direction = -1
 
 
-func _on_world_border_right_area_entered(area):
-	print(area.name)
-	direction = -1
+func _on_enemy_area_entered(area):
+	if(area.name.begins_with("WorldBorder")):
+		direction *= -1
