@@ -33,15 +33,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(delta):
-	can_win = true
-	for node in nodes:
-		if(node.name.begins_with("enemy")):
-			if(not node.can_win):
-				can_win = false
-				break
-	if(can_win):
+	nodes = enemies.get_children()
+	print(nodes)
+	if(nodes.is_empty()):
 		print("Won!")
-		queue_free()		
+		queue_free()				
 
 func _on_world_border_left_body_entered(body):
 	if(body.name == "CharacterBody2D"):
