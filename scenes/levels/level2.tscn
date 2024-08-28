@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://blxdkag1k0fe3"]
+[gd_scene load_steps=8 format=3 uid="uid://blxdkag1k0fe3"]
 
 [ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_l0x4e"]
 [ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_udwc0"]
 [ext_resource type="PackedScene" uid="uid://b8leb80lbapku" path="res://scenes/bullet.tscn" id="3_tuwmr"]
-[ext_resource type="PackedScene" uid="uid://bv2k3w8hypwaq" path="res://scenes/enemies/fighter.tscn" id="4_lebfd"]
-[ext_resource type="PackedScene" uid="uid://dlum834bjadvx" path="res://scenes/enemies/scout.tscn" id="5_lf33s"]
-[ext_resource type="PackedScene" uid="uid://cuq40egny46hg" path="res://scenes/enemies/bomber.tscn" id="6_dbnu6"]
 [ext_resource type="PackedScene" uid="uid://dcwu5dx74k0hn" path="res://scenes/enemies/torpedo-ship.tscn" id="7_42sdj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sv7hy"]
@@ -70,18 +67,10 @@ shape = SubResource("WorldBoundaryShape2D_s7jjn")
 [node name="enemies" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="enemy2" parent="enemies" instance=ExtResource("4_lebfd")]
-position = Vector2(450, 204)
-
-[node name="enemy3" parent="enemies" node_paths=PackedStringArray("enemy_list") instance=ExtResource("5_lf33s")]
-position = Vector2(709, 131)
-enemy_list = [NodePath("../enemy4")]
-
-[node name="enemy4" parent="enemies" instance=ExtResource("6_dbnu6")]
-position = Vector2(570, 256)
-
 [node name="enemy5" parent="enemies" instance=ExtResource("7_42sdj")]
 position = Vector2(658, 267)
+moving_x = true
+speed_x = 40.0
 
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]
 [connection signal="body_entered" from="WorldBorderRight" to="CharacterBody2D" method="_on_world_border_right_body_entered"]

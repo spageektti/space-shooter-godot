@@ -48,14 +48,14 @@ func damage():
 		print("Enemy damaged")
 		if(health == 0):
 			print("Enemy destroyed")
-			queue_free()
 			if(not enemy_list.is_empty()):
 				print("next enemy")
 				var enemy_node = enemy_list[0]
 				enemy_node.show()
 				enemy_node.freeze = false
-			else:
-				can_win = true
+			can_win = true
+			hide()
+			freeze = true
 
 #func _on_world_border_left_area_entered(area):
 #	print(area.name)
