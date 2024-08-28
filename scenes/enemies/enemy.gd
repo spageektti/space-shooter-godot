@@ -19,6 +19,7 @@ extends RigidBody2D
 
 var bullets = 1
 var direction = -1 # -1 left 1 right
+var can_win = false
 
 func _ready():
 	randomize()
@@ -52,7 +53,8 @@ func damage():
 			var enemy_node = enemy_list[0]
 			enemy_node.show()
 			enemy_node.freeze = false
-		
+		else:
+			can_win = true
 
 func _on_world_border_left_area_entered(area):
 	print(area.name)

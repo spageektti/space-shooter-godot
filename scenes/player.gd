@@ -7,9 +7,13 @@ const SPEED = 250.0
 @onready var animation = $AnimatedSprite2D
 @onready var world_border_left = %WorldBorderLeft
 @onready var world_border_right = %WorldBorderRight
+@onready var enemies = %enemies
 
 var health = 4
 var bullets = 4
+var can_win
+
+@onready var nodes = enemies.get_children()
 
 func _physics_process(delta):
 
@@ -27,6 +31,17 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, 20)
 	
 	move_and_slide()
+
+func _process(delta):
+	can_win = true
+	for node in nodes:
+		if(node.name.begins_with("enemy")):
+			if(not node.can_win):
+				can_win = false
+				break
+	if(can_win):
+		print("Won!")
+		queue_free()		
 
 func _on_world_border_left_body_entered(body):
 	if(body.name == "CharacterBody2D"):
