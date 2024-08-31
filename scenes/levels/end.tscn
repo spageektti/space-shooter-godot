@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://blxdkag1k0fe3"]
+[gd_scene load_steps=8 format=3 uid="uid://jp0m0m8rg7mb"]
 
-[ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_l0x4e"]
-[ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_udwc0"]
-[ext_resource type="PackedScene" uid="uid://b8leb80lbapku" path="res://scenes/bullet.tscn" id="3_tuwmr"]
-[ext_resource type="PackedScene" uid="uid://jp0m0m8rg7mb" path="res://scenes/levels/end.tscn" id="3_txfia"]
-[ext_resource type="PackedScene" uid="uid://dlum834bjadvx" path="res://scenes/enemies/scout.tscn" id="5_an7al"]
-[ext_resource type="PackedScene" uid="uid://dcwu5dx74k0hn" path="res://scenes/enemies/torpedo-ship.tscn" id="7_42sdj"]
+[ext_resource type="Texture2D" uid="uid://ccjje05jfc1li" path="res://assets/background.png" id="1_ybmc8"]
+[ext_resource type="PackedScene" uid="uid://cpo6yojev0oj4" path="res://scenes/player.tscn" id="2_hhgno"]
+[ext_resource type="PackedScene" uid="uid://b8leb80lbapku" path="res://scenes/bullet.tscn" id="3_f10og"]
+[ext_resource type="Texture2D" uid="uid://dlkn4jx5a8pmb" path="res://assets/theend.png" id="4_c0u0i"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sv7hy"]
 
@@ -27,14 +25,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("1_l0x4e")
+texture = ExtResource("1_ybmc8")
 expand_mode = 3
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_udwc0")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_hhgno")]
 unique_name_in_owner = true
 position = Vector2(575, 599)
-bullet = ExtResource("3_tuwmr")
-next_level = ExtResource("3_txfia")
+bullet = ExtResource("3_f10og")
 
 [node name="WorldBorderLeft" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -70,26 +67,20 @@ shape = SubResource("WorldBoundaryShape2D_s7jjn")
 [node name="enemies" type="Node" parent="."]
 unique_name_in_owner = true
 
-[node name="enemy" parent="enemies" instance=ExtResource("5_an7al")]
-position = Vector2(665, 390)
-
-[node name="enemy2" parent="enemies" instance=ExtResource("5_an7al")]
-position = Vector2(478, 515)
-
-[node name="enemy3" parent="enemies" instance=ExtResource("5_an7al")]
-position = Vector2(531, 274)
-
-[node name="enemy5" parent="enemies" instance=ExtResource("7_42sdj")]
-position = Vector2(658, 267)
-speed_x = 40.0
-
-[node name="enemy6" parent="enemies" instance=ExtResource("7_42sdj")]
-position = Vector2(539, 220)
-speed_x = 40.0
-
-[node name="enemy7" parent="enemies" instance=ExtResource("7_42sdj")]
-position = Vector2(573, 328)
-speed_x = 40.0
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -26.5
+offset_right = 116.0
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_c0u0i")
+expand_mode = 2
 
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]
 [connection signal="body_entered" from="WorldBorderRight" to="CharacterBody2D" method="_on_world_border_right_body_entered"]

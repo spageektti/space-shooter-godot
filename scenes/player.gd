@@ -9,6 +9,9 @@ const SPEED = 250.0
 @onready var world_border_left = %WorldBorderLeft
 @onready var world_border_right = %WorldBorderRight
 @onready var enemies = %enemies
+@onready var sound_player = $AudioStreamPlayer2D
+
+@export var shoot_sound : AudioStream
 
 var health = 4
 var bullets = 4
@@ -18,10 +21,10 @@ var frames = 0
 @onready var nodes = enemies.get_children()
 
 func _physics_process(delta):
-
 	if Input.is_action_just_pressed("shoot"):
 		if(bullets > 0):
 			spawn_bullet()
+			play_shoot_sound()
 			bullets -= 1
 			await get_tree().create_timer(4).timeout
 			bullets += 1
@@ -36,7 +39,7 @@ func _physics_process(delta):
 
 func _process(delta):
 	frames += 1
-	if(frames % 240 == 0): # 60fps * 4, so at most 4 seconds delay after win
+	if(frames % 240 == 0):
 		nodes = enemies.get_children()
 		can_win = true
 		for node in nodes:
@@ -76,3 +79,8 @@ func update_look():
 		animation.play("damaged")
 	elif(health == 1):
 		animation.play("very-damaged")
+
+func play_shoot_sound():
+	if shoot_sound:
+		sound_player.stream = shoot_sound
+		sound_player.play()

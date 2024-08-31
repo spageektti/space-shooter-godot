@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcwu5dx74k0hn"]
+[gd_scene load_steps=7 format=3 uid="uid://dcwu5dx74k0hn"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_lhniu"]
 [ext_resource type="PackedScene" uid="uid://ijcpybo6s7o8" path="res://scenes/enemies/bullets/torpedo.tscn" id="2_ghrca"]
 [ext_resource type="Texture2D" uid="uid://b2yt1qud44yi5" path="res://assets/enemies/ships/torpedo-ship.png" id="3_m2sow"]
+[ext_resource type="AudioStream" uid="uid://cphvx4crwnjsn" path="res://assets/sounds/bip_2.mp3" id="3_uh2kn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_202f4"]
 size = Vector2(54, 20)
@@ -19,6 +20,7 @@ speed_x = 50.0
 timeout_min = 3.0
 timeout_max = 4.0
 damage_amount = 4
+bullet_spawn_sound = ExtResource("3_uh2kn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_m2sow")
@@ -33,3 +35,7 @@ shape = SubResource("RectangleShape2D_202f4")
 position = Vector2(1.90735e-06, -1.66746e-13)
 scale = Vector2(1, 21.36)
 shape = SubResource("RectangleShape2D_m1rvw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="enemy" to="." method="_on_enemy_area_entered"]

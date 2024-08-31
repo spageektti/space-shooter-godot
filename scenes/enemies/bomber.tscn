@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuq40egny46hg"]
+[gd_scene load_steps=7 format=3 uid="uid://cuq40egny46hg"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_ruojl"]
 [ext_resource type="PackedScene" uid="uid://6rebyvj4203h" path="res://scenes/enemies/bullets/rocket.tscn" id="2_u58hu"]
 [ext_resource type="Texture2D" uid="uid://bis73dkfm2f3t" path="res://assets/enemies/ships/bomber.png" id="3_8gay3"]
+[ext_resource type="AudioStream" uid="uid://cphvx4crwnjsn" path="res://assets/sounds/bip_2.mp3" id="3_yjgdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_202f4"]
 size = Vector2(28, 25)
@@ -17,6 +18,7 @@ bullet = ExtResource("2_u58hu")
 timeout_min = 2.0
 timeout_max = 3.0
 damage_amount = 2
+bullet_spawn_sound = ExtResource("3_yjgdf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_8gay3")
@@ -30,3 +32,5 @@ shape = SubResource("RectangleShape2D_202f4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
 position = Vector2(-3.29018e-05, 13)
 shape = SubResource("RectangleShape2D_m1rvw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

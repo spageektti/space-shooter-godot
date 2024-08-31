@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmttl13amjrp5"]
+[gd_scene load_steps=7 format=3 uid="uid://dmttl13amjrp5"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_7yptp"]
 [ext_resource type="Texture2D" uid="uid://ckq3hsckxj6ii" path="res://assets/enemies/ships/frigate.png" id="1_gftni"]
 [ext_resource type="PackedScene" uid="uid://bsfxft3xguqvk" path="res://scenes/enemies/bullets/big-bullet.tscn" id="2_85yjq"]
+[ext_resource type="AudioStream" uid="uid://dqy7chqakfcem" path="res://assets/sounds/mini_shoot.mp3" id="3_nh1lq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_22on5"]
 radius = 22.2036
@@ -19,6 +20,7 @@ moving_x = true
 speed_x = 50.0
 timeout_min = 0.25
 timeout_max = 0.5
+bullet_spawn_sound = ExtResource("3_nh1lq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_gftni")
@@ -31,3 +33,5 @@ shape = SubResource("CircleShape2D_22on5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
 position = Vector2(-2.27374e-13, 22.5)
 shape = SubResource("RectangleShape2D_m1rvw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

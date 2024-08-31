@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpo6yojev0oj4"]
+[gd_scene load_steps=9 format=3 uid="uid://cpo6yojev0oj4"]
 
 [ext_resource type="Texture2D" uid="uid://nxe324ny1cqg" path="res://assets/player/ship/damaged.png" id="1_4b564"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_600os"]
+[ext_resource type="AudioStream" uid="uid://uul3hjvnq6kl" path="res://assets/sounds/shoot.mp3" id="2_0ncad"]
 [ext_resource type="Texture2D" uid="uid://dqvh3xg2udhf0" path="res://assets/player/ship/full-health.png" id="2_3v162"]
 [ext_resource type="Texture2D" uid="uid://d124gvqm2k2c8" path="res://assets/player/ship/slight-damage.png" id="3_dlcqf"]
 [ext_resource type="Texture2D" uid="uid://b58ysf4a1moq2" path="res://assets/player/ship/very-damaged.png" id="4_7ua4k"]
@@ -47,6 +48,7 @@ size = Vector2(28, 24)
 [node name="CharacterBody2D" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_600os")
+shoot_sound = ExtResource("2_0ncad")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ovmdc")
@@ -54,3 +56,5 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ukpt7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

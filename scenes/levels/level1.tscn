@@ -20,6 +20,41 @@ distance = -1.0
 
 [node name="Node2D" type="Node"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(743, 0)
+rotation = 1.5708
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-10, 178)
+texture = ExtResource("8_t6cma")
+region_rect = Rect2(1000, 1000, 0, 0)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(743, 0)
+rotation = 1.5708
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-10, 178)
+texture = ExtResource("9_tfm02")
+region_rect = Rect2(1000, 1000, 0, 0)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(743, 0)
+rotation = 1.5708
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-8.99999, 179)
+texture = ExtResource("10_o0jr1")
+region_rect = Rect2(1000, 1000, 0, 0)
+
 [node name="Background" type="TextureRect" parent="."]
 visible = false
 anchors_preset = 13
@@ -76,51 +111,19 @@ shape = SubResource("WorldBoundaryShape2D_s7jjn")
 unique_name_in_owner = true
 
 [node name="enemy2" parent="enemies" instance=ExtResource("5_gqae5")]
-position = Vector2(564, 186)
+position = Vector2(573, 426)
 moving_x = true
 speed_x = 50.0
 
-[node name="enemy3" parent="enemies" node_paths=PackedStringArray("enemy_list") instance=ExtResource("6_yspeq")]
-position = Vector2(709, 131)
+[node name="enemy3" parent="enemies" instance=ExtResource("6_yspeq")]
+position = Vector2(473, 304)
+
+[node name="enemy" parent="enemies" node_paths=PackedStringArray("enemy_list") instance=ExtResource("6_yspeq")]
+position = Vector2(690, 320)
 enemy_list = [NodePath("../enemy4")]
 
 [node name="enemy4" parent="enemies" instance=ExtResource("7_34n60")]
 position = Vector2(570, 256)
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-position = Vector2(743, 0)
-rotation = 1.5708
-motion_scale = Vector2(0.1, 0.1)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-10, 178)
-texture = ExtResource("8_t6cma")
-region_rect = Rect2(1000, 1000, 0, 0)
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-position = Vector2(743, 0)
-rotation = 1.5708
-motion_scale = Vector2(0.1, 0.1)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2(-10, 178)
-texture = ExtResource("9_tfm02")
-region_rect = Rect2(1000, 1000, 0, 0)
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-texture_filter = 1
-position = Vector2(743, 0)
-rotation = 1.5708
-motion_scale = Vector2(0.1, 0.1)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2(-8.99999, 179)
-texture = ExtResource("10_o0jr1")
-region_rect = Rect2(1000, 1000, 0, 0)
 
 [connection signal="body_entered" from="WorldBorderLeft" to="CharacterBody2D" method="_on_world_border_left_body_entered"]
 [connection signal="body_entered" from="WorldBorderRight" to="CharacterBody2D" method="_on_world_border_right_body_entered"]
